@@ -16,7 +16,7 @@ namespace Application.Beosztasok
 {
     public class List
     {
-        public class Query :  IRequest<Result<List<Beosztas>>> {}
+        public class Query : IRequest<Result<List<Beosztas>>> {}
 
         public class Handler : IRequestHandler<Query, Result<List<Beosztas>>>
         {

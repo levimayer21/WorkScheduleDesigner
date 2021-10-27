@@ -60,7 +60,8 @@ namespace Persistence
                     BeosztasTipus = BeosztasTipusEnum.N,
                     HomeOffice = false,
                     Letrehozva = DateTime.UtcNow,
-                    Modositva = DateTime.UtcNow
+                    Modositva = DateTime.UtcNow,
+                    Munkaido = TimeSpan.Zero
                 },
                 new Beosztas
                 {
@@ -70,7 +71,8 @@ namespace Persistence
                     BeosztasTipus = BeosztasTipusEnum.K,
                     HomeOffice = true,
                     Letrehozva = DateTime.UtcNow,
-                    Modositva = DateTime.UtcNow
+                    Modositva = DateTime.UtcNow,
+                    Munkaido = TimeSpan.Zero
                 },
                 new Beosztas
                 {
@@ -80,7 +82,8 @@ namespace Persistence
                     BeosztasTipus = BeosztasTipusEnum.N,
                     HomeOffice = false,
                     Letrehozva = DateTime.UtcNow,
-                    Modositva = DateTime.UtcNow
+                    Modositva = DateTime.UtcNow,
+                    Munkaido = TimeSpan.Zero
                 },
             };
 

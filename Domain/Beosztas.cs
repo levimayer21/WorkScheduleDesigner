@@ -5,7 +5,7 @@ namespace Domain
 {
     public class Beosztas
     {
-        private TimeSpan munkaido;
+        private TimeSpan _munkaido;
 
         [Required]
         public Guid Id { get; set; }
@@ -21,7 +21,7 @@ namespace Domain
         public bool HomeOffice { get; set; }
         public DateTime Letrehozva { get; set; }
         public DateTime Modositva { get; set; }
-        public TimeSpan Munkaido { get => munkaido; private set => munkaido = MuszakVeg - MuszakKezd; }
+        public TimeSpan Munkaido { get => _munkaido; set => _munkaido = MuszakVeg - MuszakKezd; }
     }
 
     public enum BeosztasTipusEnum
