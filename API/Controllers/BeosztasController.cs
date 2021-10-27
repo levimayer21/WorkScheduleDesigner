@@ -9,7 +9,7 @@ namespace API.Controllers
     public class BeosztasController : BaseApiController
     {
         [HttpGet]
-        public async Task<IActionResult> GetBeosztasok() 
+        public IActionResult GetBeosztasok() 
         {
             return Ok();
             // HandleResult(await Mediator.Send())
