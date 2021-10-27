@@ -1,21 +1,27 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
     public class Beosztas
     {
-        private int munkaido;
+        private TimeSpan munkaido;
 
+        [Required]
         public Guid Id { get; set; }
-        public BeoIdentity Beosztott { get; set; }
+        [Required]
         public Csoport Csoport { get; set; }
+        [Required]
         public DateTime MuszakKezd { get; set; }
+        [Required]
         public DateTime MuszakVeg { get; set; }
-        public int Munkaido { get => munkaido; private set => munkaido = Math.Abs(MuszakVeg.Hour-MuszakKezd.Hour); }
+        [Required]
         public BeosztasTipusEnum BeosztasTipus { get; set; }
+        [Required]
         public bool HomeOffice { get; set; }
         public DateTime Letrehozva { get; set; }
         public DateTime Modositva { get; set; }
+        public TimeSpan Munkaido { get => munkaido; private set => munkaido = MuszakVeg - MuszakKezd; }
     }
 
     public enum BeosztasTipusEnum

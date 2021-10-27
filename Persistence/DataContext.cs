@@ -10,6 +10,11 @@ namespace Persistence
 {
     public class DataContext : IdentityDbContext<BeoIdentity>
     {
-        
+        public DbSet<Beosztas> Beosztasok {get; set;}
+        public DbSet<Csoport> Csoportok { get; set; }
+        public DataContext(DbContextOptions options) : base(options)
+        {
+
+        }
     }
 }
