@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain
 {
@@ -7,10 +9,11 @@ namespace Domain
     {
         private TimeSpan _munkaido;
 
-        [Required]
         public Guid Id { get; set; }
-        [Required]
+        [ForeignKey("Csoport_Id")]
         public Csoport Csoport { get; set; }
+        [Required]
+        public Guid Csoport_Id { get; set; }
         [Required]
         public DateTime MuszakKezd { get; set; }
         [Required]

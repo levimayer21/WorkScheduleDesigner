@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using Domain;
 using MediatR;
 using Persistence;
 
 namespace Application.Beosztasok
 {
-    public class Create
+    public class Edit
     {
         public class Command : IRequest<Result<Unit>>
         {
@@ -20,27 +23,31 @@ namespace Application.Beosztasok
         public class Handler : IRequestHandler<Command, Result<Unit>>
         {
             private readonly DataContext _context;
-
-            public Handler(DataContext context)
+            private readonly IMapper _mapper;
+            public Handler(DataContext context, IMapper mapper)
             {
+                _mapper = mapper;
                 _context = context;
             }
 
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
             {
-                request.Beosztas.Munkaido = TimeSpan.Zero;
+                var beosztas = await _context.Beosztasok.FindAsync(request.Beosztas.Id);
 
-                request.Beosztas.Letrehozva = DateTime.Now;
+                if (beosztas == null)
+                {
+                    return null;
+                }
 
-                request.Beosztas.Modositva = DateTime.Now;
+                _mapper.Map(request.Beosztas, beosztas);
 
-                _context.Beosztasok.Add(request.Beosztas);
+                beosztas.Modositva = DateTime.Now;
 
                 var result = await _context.SaveChangesAsync() > 0;
 
                 if (!result)
                 {
-                    return Result<Unit>.Failure("Failed to create event");
+                    return Result<Unit>.Failure("Failed to update event");
                 }
 
                 return Result<Unit>.Success(Unit.Value);

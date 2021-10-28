@@ -55,34 +55,37 @@ namespace Persistence
                 new Beosztas
                 {
                     Csoport = csoportok.FirstOrDefault(x => x.CsoportNev == "TSM"),
+                    Csoport_Id = csoportok.FirstOrDefault(x => x.CsoportNev == "TSM").Id,
                     MuszakKezd = DateTime.Parse("2021/10/26 6:00"),
                     MuszakVeg = DateTime.Parse("2021/10/26 18:00"),
                     BeosztasTipus = BeosztasTipusEnum.N,
                     HomeOffice = false,
-                    Letrehozva = DateTime.UtcNow,
-                    Modositva = DateTime.UtcNow,
+                    Letrehozva = DateTime.Now,
+                    Modositva = DateTime.Now,
                     Munkaido = TimeSpan.Zero
                 },
                 new Beosztas
                 {
                     Csoport = csoportok.FirstOrDefault(x => x.CsoportNev == "KIRUI-HW"),
+                    Csoport_Id = csoportok.FirstOrDefault(x => x.CsoportNev == "KIRUI-HW").Id,
                     MuszakKezd = DateTime.Parse("2021/10/26 0:00"),
                     MuszakVeg = DateTime.Parse("2021/10/26 20:00"),
                     BeosztasTipus = BeosztasTipusEnum.K,
                     HomeOffice = true,
-                    Letrehozva = DateTime.UtcNow,
-                    Modositva = DateTime.UtcNow,
+                    Letrehozva = DateTime.Now,
+                    Modositva = DateTime.Now,
                     Munkaido = TimeSpan.Zero
                 },
                 new Beosztas
                 {
                     Csoport = csoportok.FirstOrDefault(x => x.CsoportNev == "Munkaügyek"),
+                    Csoport_Id = csoportok.FirstOrDefault(x => x.CsoportNev == "Munkaügyek").Id,
                     MuszakKezd = DateTime.Parse("2021/10/26 8:00"),
                     MuszakVeg = DateTime.Parse("2021/10/26 16:00"),
                     BeosztasTipus = BeosztasTipusEnum.N,
                     HomeOffice = false,
-                    Letrehozva = DateTime.UtcNow,
-                    Modositva = DateTime.UtcNow,
+                    Letrehozva = DateTime.Now,
+                    Modositva = DateTime.Now,
                     Munkaido = TimeSpan.Zero
                 },
             };
